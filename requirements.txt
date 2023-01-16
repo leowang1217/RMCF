@@ -1,0 +1,14 @@
+torch==1.12
+rdkit
+scikit-learn
+debugpy
+fairscale
+einops
+networkx
+transformers==4.9.1
+scikit-learn-extra
+torch-scatter 
+torch-sparse
+torch-cluster 
+torch-spline-conv 
+torch-geometric
