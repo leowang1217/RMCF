@@ -68,13 +68,12 @@ def test(args):
         else:
             for m in results.keys():
                 covmat[m].extend(results[m])
+            for metric in ['COV-R','MAT-R','COV-P','MAT-P']:
+                print(f"{metric}: MEAN {np.mean(np.array(covmat[metric]))} MEDIAN {np.median(np.array(covmat[metric]))}")
+            print('VALID TEST NUM',len(covmat['COV-R']))
+            print()
     if args.return_mols:
         pickle.dump(total_mols,open(f'{args.model_dir}/mols.pkl'))
-    else:
-        for metric in ['COV-R','MAT-R','COV-P','MAT-P']:
-            print(f"{metric}: MEAN {np.mean(np.array(covmat[metric]))} MEDIAN {np.median(np.array(covmat[metric]))}")
-        # model.sample(**batch,filename=args.output)
-
 
 if __name__ == '__main__':
 

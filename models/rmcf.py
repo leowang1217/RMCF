@@ -218,7 +218,5 @@ def asm_mol(para,
     if return_mols:
         return pred_mols
     else:
-        print('Calc COVMAT',para['smiles'],flush=True)
         metric = covmat(pred_mols=pred_mols,ref_mols=ref['mols'],thres=cov_thres)
-        # print('Calc COVMAT',para['smiles'],time.time()-time1)
         return metric

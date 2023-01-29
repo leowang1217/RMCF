@@ -145,12 +145,13 @@ def load_state_dict_in_model(model,state_dict):
     load_result = model.load_state_dict(state_dict, strict=False)
 
     if len(load_result.missing_keys) != 0:
-            if set(load_result.missing_keys) == set(model._keys_to_ignore_on_save):
-                model.tie_weights()
-            else:
-                logger.warn(f"There were missing keys in the checkpoint model loaded: {load_result.missing_keys}.")
-    if len(load_result.unexpected_keys) != 0:
-            logger.warn(f"There were unexpected keys in the checkpoint model loaded: {load_result.unexpected_keys}.")
+        print(load_result.missing_keys)
+    #         if set(load_result.missing_keys) == set(model._keys_to_ignore_on_save):
+    #             model.tie_weights()
+    #         else:
+        logger.warn(f"There were missing keys in the checkpoint model loaded: {load_result.missing_keys}.")
+    # if len(load_result.unexpected_keys) != 0:
+    #         logger.warn(f"There were unexpected keys in the checkpoint model loaded: {load_result.unexpected_keys}.")
 
     return model
 

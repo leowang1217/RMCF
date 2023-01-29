@@ -15,7 +15,7 @@ def get_best_rmsd(probe, ref):
 def covmat(pred_mols,ref_mols,thres = 1.25):
     rmsd_mat = -1 * np.ones([len(ref_mols), len(pred_mols)],dtype=np.float)
     valid_flag = True
-    for i,p in enumerate(pred_mols):
+    for i,p in enumerate(tqdm(pred_mols)):
         for j,r in enumerate(ref_mols):
             try:
                 rmsd  = get_best_rmsd(deepcopy(p),deepcopy(r))

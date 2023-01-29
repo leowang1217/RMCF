@@ -1,4 +1,4 @@
-model_dir="checkpoints/rmcf/checkpoint-20000"
+model_dir="checkpoints/rmcf/checkpoint-20000" #your model path
 data_path="geom-drugs"
 
 args=(
@@ -11,7 +11,8 @@ args=(
     --cov-thres 1.25
     --model-name rmcf
     --mpnn-steps 3
-    --batch-size 256
+    --batch-size 16
 )
 
-python3 test.py "${args[@]}" >> $model_dir/test_log.txt
+
+python3 test.py "${args[@]}"
